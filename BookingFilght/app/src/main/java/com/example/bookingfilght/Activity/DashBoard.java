@@ -36,12 +36,12 @@ import static androidx.core.content.ContentProviderCompat.requireContext;
 
 public class DashBoard extends AppCompatActivity implements DrawerAdapter.OnItemSelectedListener{
 
-    private static final int POS_CLOSE = 0;
-    private static final int POS_DASHBOARD = 1;
-    private static final int POS_MY_PROFILE = 2;
-    private static final int POS_SETTING = 3;
-    private static final int POS_ABOUT_US = 4;
-    private static final int POS_LOGOUT = 5;
+    private static final int POS_CLOSE = 1;
+    private static final int POS_DASHBOARD = 3;
+    private static final int POS_MY_PROFILE = 4;
+    private static final int POS_SETTING = 5;
+    private static final int POS_ABOUT_US = 6;
+    private static final int POS_LOGOUT = 8;
 
     String[] screenTitles;
     Drawable[] screenIcons;
@@ -74,13 +74,16 @@ public class DashBoard extends AppCompatActivity implements DrawerAdapter.OnItem
 
 
         DrawerAdapter adapter = new DrawerAdapter(Arrays.asList(
+                new SpaceItem(20),
                 createItemFor(POS_CLOSE),
+                new SpaceItem(50),
                 createItemFor(POS_DASHBOARD).setChecked(true),
                 createItemFor(POS_MY_PROFILE),
                 createItemFor(POS_SETTING),
                 createItemFor(POS_ABOUT_US),
                 new SpaceItem(250),
-                createItemFor(POS_LOGOUT)
+                createItemFor(POS_LOGOUT),
+        new SpaceItem(250)
         ));
 
         adapter.setListener(this);

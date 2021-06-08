@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.LoginActivity"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="@drawable/custom_background"
     android:padding="20dp">
 
 

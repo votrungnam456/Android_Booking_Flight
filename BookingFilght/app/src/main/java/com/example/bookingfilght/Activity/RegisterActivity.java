@@ -2,6 +2,7 @@ package com.example.bookingfilght.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import com.google.android.material.textfield.TextInputLayout;
 public class RegisterActivity extends AppCompatActivity {
 
     TextInputLayout txtEmail, txtFullName, txtCmnd, txtPassWord, txtPhone;
-    Button btnButton;
+    Button btnButton, btnBacklogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,14 @@ public class RegisterActivity extends AppCompatActivity {
                 registerUser();
             }
         });
+
+        btnBacklogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void mapping() {
@@ -36,6 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
         txtPassWord = findViewById(R.id.password);
         txtPhone = findViewById(R.id.soDienThoai);
         btnButton = findViewById(R.id.btnregister);
+        btnBacklogin = findViewById(R.id.btnBacklogin);
+
     }
 
 

@@ -1,12 +1,14 @@
 package com.example.bookingfilght.Fragment;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -15,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.bookingfilght.Activity.ResultSearchActivity;
 import com.example.bookingfilght.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -30,6 +33,7 @@ public class SettingFragment extends Fragment {
     TextInputLayout layoutNgayVe;
     Calendar calendar;
     CheckBox checkBox;
+    Button btnSearch;
 
     @Nullable
     @Override
@@ -50,6 +54,8 @@ public class SettingFragment extends Fragment {
         txtNgayVe = view.findViewById(R.id.txtngayve);
         checkBox = view.findViewById(R.id.checkedKhuHoi);
         txtNgayDi = view.findViewById(R.id.txtngaydi);
+        btnSearch = view.findViewById(R.id.btnSearch);
+
 
         checkBox.setChecked(true);
 
@@ -115,6 +121,14 @@ public class SettingFragment extends Fragment {
                 } else {
                     layoutNgayVe.setVisibility(View.INVISIBLE);
                 }
+            }
+        });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), ResultSearchActivity.class);
+                startActivity(intent);
             }
         });
 

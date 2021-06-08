@@ -9,13 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookingFilght">
-        <activity android:name=".Activity.DashBoard"></activity>
-        <activity android:name=".Activity.Info_Customer_Activity" />
+        <activity android:name=".Activity.ResultSearchActivity"></activity>
+        <activity android:name=".Activity.DashBoard" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.DetailTicket_Activity" />
-        <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.Select_1_Activity" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />

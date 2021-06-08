@@ -3,25 +3,28 @@
 
     <string-array name="id_activityScreenTitles">
         <item></item>
+        <item></item>
+        <item></item>
         <item>DashBoard</item>
         <item>My Profile</item>
         <item>Booking</item>
         <item>About Us</item>
-        <item>Log out</item>
         <item></item>
+        <item>Log out</item>
+
 
     </string-array>
 
     <string-array name="id_activityScreenIcons">
+        <item>0</item>
         <item>@drawable/close</item>
+        <item>0</item>
         <item>@drawable/dashboard</item>
         <item>@drawable/profilemenu</item>
         <item>@drawable/settings</item>
         <item>@drawable/information</item>
-        <item>@drawable/logout</item>
         <item>0</item>
-
-
+        <item>@drawable/logout</item>
     </string-array>
 
     <string-array name="id_SanBay">

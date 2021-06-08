@@ -13,7 +13,7 @@ android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#fece2f"
+        android:background="@drawable/custom_background"
         android:padding="20dp">
 
         <ImageView
@@ -59,7 +59,7 @@ android:layout_height="match_parent">
             android:layout_height="125dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#fece2f"
+            app:cardBackgroundColor="#f0c356"
             app:cardElevation="10dp">
 
             <RelativeLayout
@@ -102,7 +102,7 @@ android:layout_height="match_parent">
             android:layout_height="125dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#fece2f"
+            app:cardBackgroundColor="#f0c356"
             app:cardElevation="10dp">
 
             <RelativeLayout
@@ -174,7 +174,9 @@ android:layout_height="match_parent">
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/card"
                 android:drawablePadding="10dp"
-                android:text="302378456" />
+                android:text="302378456"
+                android:inputType="number"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -204,7 +206,9 @@ android:layout_height="match_parent">
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/phone"
                 android:drawablePadding="10dp"
-                android:text="0356614585" />
+                android:text="0356614585"
+                android:inputType="number"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -215,6 +219,7 @@ android:layout_height="match_parent">
             android:fontFamily="@font/bungee"
             android:text="Update"
             android:textColor="#000" />
+
 
     </LinearLayout>
 </LinearLayout>

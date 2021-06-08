@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.RegisterActivity"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="@drawable/custom_background"
     android:padding="10dp">
 
 
@@ -138,16 +138,15 @@
         android:backgroundTint="#000"
         android:textColor="#fff"
         android:text="GO"
-        android:transitionName="button_tran"
-
-        />
+        android:transitionName="button_tran" />
 
     <Button
+        android:id="@+id/btnBacklogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#00000000"
-        android:textColor="#000"
-        app:backgroundTint="#fff"
+        android:textColor="@color/black"
+        android:fontFamily="@font/antic"
+        android:backgroundTint="#fff"
         android:text="Already have an Account? LogIn"
         android:transitionName="login_signup_tran"
 
