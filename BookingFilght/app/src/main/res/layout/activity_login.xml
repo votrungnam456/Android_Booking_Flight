@@ -85,29 +85,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:elevation="0dp"
-            android:text="GO"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:elevation="0dp"
             android:fontFamily="@font/antic"
+            android:text="@string/signIN"
             android:textColor="@color/white"
-            app:backgroundTint="@color/black"
             android:transitionName="button_tran"
-            />
+            app:backgroundTint="@color/black" />
 
         <Button
             android:id="@+id/callsignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:elevation="0dp"
-            android:text="New user ? Sign Up"
-            android:fontFamily="@font/antic"
             android:layout_margin="5dp"
+            android:elevation="0dp"
+            android:fontFamily="@font/antic"
+            android:text="@string/toSignIn"
             android:textColor="@color/black"
-            app:backgroundTint="#fff"
             android:transitionName="login_signup_tran"
-            />
+            app:backgroundTint="#fff" />
 
     </LinearLayout>
 

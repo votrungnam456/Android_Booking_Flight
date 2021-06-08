@@ -28,14 +28,14 @@
         android:fontFamily="@font/bungee"
         android:layout_marginTop="-25dp"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignUp to start your new Journey"
-        android:transitionName="text_dec"
-        android:textSize="18sp"
         android:layout_marginTop="-25dp"
-        />
+        android:text="@string/titleRegister"
+        android:textSize="18sp"
+        android:transitionName="text_dec" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -136,8 +136,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#000"
+        android:text="@string/register"
         android:textColor="#fff"
-        android:text="GO"
         android:transitionName="button_tran"
 
         />
@@ -146,10 +146,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#00000000"
+        android:text="@string/toLogin"
         android:textColor="#000"
-        app:backgroundTint="#fff"
-        android:text="Already have an Account? LogIn"
         android:transitionName="login_signup_tran"
+        app:backgroundTint="#fff"
 
         />
 

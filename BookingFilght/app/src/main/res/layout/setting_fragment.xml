@@ -38,10 +38,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="33dp"
-                android:text="Hey You!"
                 android:fontFamily="@font/antic"
+                android:text="@string/titleBooking2"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="32sp" />
@@ -53,7 +52,7 @@
                 android:layout_below="@+id/textView"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/antic"
-                android:text="Where you want to go?"
+                android:text="@string/titleBooking"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
@@ -112,7 +111,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="Sân đi"
+                        android:hint="@string/noidi"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp">
 
@@ -136,7 +135,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="Sân đến"
+                        android:hint="@string/noiden"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp">
 
@@ -157,7 +156,7 @@
                         android:layout_below="@+id/noiden"
                         android:layout_marginLeft="-10dp"
                         android:layout_toRightOf="@+id/ngaydi"
-                        android:text="Khứ hồi"
+                        android:text="@string/khuhoi"
                         android:textSize="18sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -169,7 +168,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="Ngày đi"
+                        android:hint="@string/ngaydi"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
@@ -193,7 +192,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="Ngày về"
+                        android:hint="@string/ngayve"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
@@ -218,7 +217,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="Loại vé "
+                        android:hint="@string/typeTicket"
 
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
@@ -244,7 +243,7 @@
                         android:backgroundTint="#7226ed"
                         android:drawableLeft="@android:drawable/ic_menu_search"
                         android:fontFamily="serif"
-                        android:text="Search"
+                        android:text="@string/search"
                         android:textAllCaps="false"
                         android:textColor="#fff"
                         android:textSize="18sp" />
