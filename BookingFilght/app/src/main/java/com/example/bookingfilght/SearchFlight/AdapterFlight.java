@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,11 +24,13 @@ public class AdapterFlight extends BaseAdapter {
     List<ChuyenBayDTO> datas;
     private Context context;
     private int layout;
+    FlightCallBack flightCallBack;
 
-    public AdapterFlight(Context context, int layout, List<ChuyenBayDTO> datas) {
+    public AdapterFlight(Context context, int layout, List<ChuyenBayDTO> datas, FlightCallBack flightCallBack) {
         this.context = context;
         this.layout = layout;
         this.datas = datas;
+        this.flightCallBack = flightCallBack;
     }
 
     @Override
@@ -46,7 +50,7 @@ public class AdapterFlight extends BaseAdapter {
 
     // tránh render lại row trong view
     private class ViewHoldel {
-        ImageView img;
+        ImageView img, container;
         TextView tv_gioDi, tv_gioDen, tv_maDi, tv_maDen, tv_hang, tv_slogan, tv_gia;
         Button btn_Booking;
     }
@@ -71,6 +75,7 @@ public class AdapterFlight extends BaseAdapter {
             viewHoldel.tv_gia = (TextView) convertView.findViewById(R.id.tv_gia);
             viewHoldel.btn_Booking = (Button) convertView.findViewById(R.id.btn_gia);
             viewHoldel.img = (ImageView) convertView.findViewById(R.id.imageView2);
+            viewHoldel.container = (ImageView) convertView.findViewById(R.id.container);
             convertView.setTag(viewHoldel);
         } else {
             viewHoldel = (ViewHoldel) convertView.getTag();
@@ -83,18 +88,29 @@ public class AdapterFlight extends BaseAdapter {
         viewHoldel.tv_maDi.setText(chuyenBayDTO.getCodeSanDi());
         viewHoldel.tv_maDen.setText(chuyenBayDTO.getCodeSanDen());
         viewHoldel.tv_hang.setText(chuyenBayDTO.getHangVe());
-        viewHoldel.tv_slogan.setText(chuyenBayDTO.getGio());
+        viewHoldel.tv_slogan.setText(chuyenBayDTO.getHangVe());
         viewHoldel.tv_gia.setText(chuyenBayDTO.getDonGia());
-        viewHoldel.btn_Booking.setTag(chuyenBayDTO.getId());
+        viewHoldel.btn_Booking.setTag(1);
         viewHoldel.img.setImageResource(chuyenBayDTO.getImage());
+
+
 
         viewHoldel.btn_Booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(viewHoldel.btn_Booking.getTag());
+                if(viewHoldel.container != null || chuyenBayDTO.getCodeSanDi() == null ||
+                        chuyenBayDTO.getCodeSanDen() == null ||chuyenBayDTO.getHangVe() == null ||
+                        chuyenBayDTO.getDonGia() == null  || chuyenBayDTO.getImage() == null) {
+                        System.out.println(position);
+                } else {
+                    flightCallBack.onFlightItemClick(position, viewHoldel.img, viewHoldel.tv_gioDi,
+                            viewHoldel.tv_gioDen, viewHoldel.tv_maDi, viewHoldel.tv_maDen,
+                            viewHoldel.tv_hang, viewHoldel.tv_slogan, viewHoldel.tv_gia);
+                }
             }
         });
-
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.list_animation);
+        convertView.startAnimation(animation);
         return convertView;
     }
 }

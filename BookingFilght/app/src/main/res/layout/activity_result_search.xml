@@ -16,19 +16,30 @@
             android:background="@drawable/custom_background"
             android:padding="20dp">
 
+
+
             <ImageView
                 android:id="@+id/profile_image"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
+                android:layout_marginLeft="50dp"
                 android:layout_height="90dp"
-                android:layout_marginRight="-10dp"
                 android:layout_marginBottom="15dp"
                 android:src="@drawable/flightsearch" />
+
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="-15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/back" />
 
             <TextView
                 android:id="@+id/full_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="-21dp"
                 android:layout_toRightOf="@+id/profile_image"
                 android:fontFamily="@font/bungee"
                 android:includeFontPadding="false"
@@ -40,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/full_name"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="-20dp"
                 android:layout_toRightOf="@+id/profile_image"
                 android:includeFontPadding="false"
                 android:textColor="@color/black"
@@ -111,12 +122,16 @@
             <ListView
                 android:id="@+id/listFlight"
                 android:layout_width="match_parent"
-                android:layout_height="559dp" />
+                android:layout_height="570dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Long"
+                android:fontFamily="@font/bangers"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:text="Thank you for trusting us"
                 />
 
 

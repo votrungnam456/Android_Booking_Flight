@@ -30,33 +30,27 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mapping();
 
-        callSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        callSignUp.setOnClickListener(v -> {
 
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                Pair[] pairs =new Pair[7];
-                pairs[0] = new Pair<View, String>(imageView, "logo_image");
-                pairs[1] = new Pair<View, String>(logoText, "logo_text");
-                pairs[2] = new Pair<View, String>(sloganText, "text_dec");
-                pairs[3] = new Pair<View, String>(emailAddress, "email_tran");
-                pairs[4] = new Pair<View, String>(password, "password_tran");
-                pairs[5] = new Pair<View, String>(btnlogin, "button_tran");
-                pairs[6] = new Pair<View, String>(callSignUp, "login_signup_tran");
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Pair[] pairs =new Pair[7];
+            pairs[0] = new Pair<View, String>(imageView, "logo_image");
+            pairs[1] = new Pair<View, String>(logoText, "logo_text");
+            pairs[2] = new Pair<View, String>(sloganText, "text_dec");
+            pairs[3] = new Pair<View, String>(emailAddress, "email_tran");
+            pairs[4] = new Pair<View, String>(password, "password_tran");
+            pairs[5] = new Pair<View, String>(btnlogin, "button_tran");
+            pairs[6] = new Pair<View, String>(callSignUp, "login_signup_tran");
 
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, pairs);
-                    startActivity(intent, options.toBundle());
-                }
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, pairs);
+                startActivity(intent, options.toBundle());
             }
         });
 
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, DashBoard.class);
-                startActivity(intent);
-            }
+        btnlogin.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, DashBoard.class);
+            startActivity(intent);
         });
 
     }

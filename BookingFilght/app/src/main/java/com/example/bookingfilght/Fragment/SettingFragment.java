@@ -76,60 +76,48 @@ public class SettingFragment extends Fragment {
         txtNgayVe.setText(simpleDateFormat.format(calendar.getTime()));
 
         //chon ngay di
-        txtNgayDi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog.OnDateSetListener chonngaydi = new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        txtNgayDi.setText(dayOfMonth + "/" + (month+1) + "/" + year);
-                    }
-                };
-                String[] mang = txtNgayDi.getText().toString().split("/");
-                int day = Integer.parseInt(mang[0]);
-                int month =Integer.parseInt(mang[1]);
-                int year = Integer.parseInt(mang[2]);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(),chonngaydi,year,month,day);
-                datePickerDialog.show();
-            }
+        txtNgayDi.setOnClickListener(v -> {
+            DatePickerDialog.OnDateSetListener chonngaydi = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view1, int year, int month, int dayOfMonth) {
+                    txtNgayDi.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+                }
+            };
+            String[] mang = txtNgayDi.getText().toString().split("/");
+            int day = Integer.parseInt(mang[0]);
+            int month =Integer.parseInt(mang[1]);
+            int year = Integer.parseInt(mang[2]);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(),chonngaydi,year,month,day);
+            datePickerDialog.show();
         });
 
         //chon ngay ve
-        txtNgayVe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog.OnDateSetListener chonngaydi = new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        txtNgayVe.setText(dayOfMonth + "/" + (month+1) + "/" + year);
-                    }
-                };
-                String[] mang = txtNgayVe.getText().toString().split("/");
-                int day = Integer.parseInt(mang[0]);
-                int month =Integer.parseInt(mang[1]);
-                int year = Integer.parseInt(mang[2]);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(),chonngaydi,year,month,day);
-                datePickerDialog.show();
-            }
-        });
-
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    layoutNgayVe.setVisibility(View.VISIBLE);
-                } else {
-                    layoutNgayVe.setVisibility(View.INVISIBLE);
+        txtNgayVe.setOnClickListener(v -> {
+            DatePickerDialog.OnDateSetListener chonngaydi = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view12, int year, int month, int dayOfMonth) {
+                    txtNgayVe.setText(dayOfMonth + "/" + (month+1) + "/" + year);
                 }
+            };
+            String[] mang = txtNgayVe.getText().toString().split("/");
+            int day = Integer.parseInt(mang[0]);
+            int month =Integer.parseInt(mang[1]);
+            int year = Integer.parseInt(mang[2]);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(),chonngaydi,year,month,day);
+            datePickerDialog.show();
+        });
+
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                layoutNgayVe.setVisibility(View.VISIBLE);
+            } else {
+                layoutNgayVe.setVisibility(View.INVISIBLE);
             }
         });
 
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ResultSearchActivity.class);
-                startActivity(intent);
-            }
+        btnSearch.setOnClickListener(v -> {
+            Intent intent = new Intent(view.getContext(), ResultSearchActivity.class);
+            startActivity(intent);
         });
 
     }

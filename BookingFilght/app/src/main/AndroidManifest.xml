@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookingFilght">
-        <activity android:name=".Activity.ResultSearchActivity"></activity>
+        <activity android:name=".Activity.InfoBookingActivity"></activity>
+        <activity
+            android:name=".Activity.ResultSearchActivity" />
         <activity android:name=".Activity.DashBoard" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.LoginActivity" />

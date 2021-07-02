@@ -22,19 +22,11 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         mapping();
 
-        btnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerUser();
-            }
-        });
+        btnButton.setOnClickListener(v -> registerUser());
 
-        btnBacklogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+        btnBacklogin.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
     }
 
