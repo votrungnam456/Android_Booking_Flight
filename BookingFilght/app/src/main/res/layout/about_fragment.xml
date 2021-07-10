@@ -1,62 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/custom_background"
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
+        android:layout_marginRight="30dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_height="150dp"
         >
-        <RelativeLayout
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-            <RelativeLayout
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/custom_button"
-                >
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/custom_button"
-                    app:tint="#fff"
-                    android:layout_margin="3dp"
 
-                    />
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/bg3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:text="Nguyễn Thành Long"
+                        android:textSize="24dp"
+                        android:textColor="#ffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="--- --- --- --- --- --- --- ---"
+                        android:textSize="16dp"
+                        android:textColor="#ffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
                 <RelativeLayout
-                    android:layout_width="65dp"
-                    android:layout_height="50dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="6dp"
-                    android:background="@drawable/search">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/search"
-                        android:padding="10dp"
-                        app:tint="#fff" />
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/userhistory" />
                 </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
                 <TextView
+                    android:text= "Tổng vé: 10"
+                    android:textSize="24dp"
+                    android:textColor="#ffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="65dp"
-                    android:gravity="center"
-                    android:fontFamily="@font/antic"
-                    android:text="SEARCH"
-                    android:textSize="20sp"
-                    android:textColor="#000"
-                    />
-            </RelativeLayout>
-        </RelativeLayout>
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="3dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:text="25.000.000 VND"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+    <ListView
+        android:id="@+id/listFlightHistory"
+        android:layout_width="match_parent"
+        android:layout_height="570dp" />
 
 </LinearLayout>

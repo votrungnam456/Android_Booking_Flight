@@ -11,9 +11,19 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.bookingfilght.Models.KhachHangDTO;
 import com.example.bookingfilght.R;
+import com.example.bookingfilght.api.KhachHangCallAPI;
+import com.example.bookingfilght.api.callAPI;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         mapping();
-
+        callNhanVien();
         callSignUp.setOnClickListener(v -> {
 
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
@@ -58,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
     private void mapping()
     {
         callSignUp = findViewById(R.id.callsignup);
-
         imageView = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
         sloganText = findViewById(R.id.slogan_name);
@@ -66,4 +75,47 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnlogin = findViewById(R.id.btnlogin);
     }
+
+    private void callNhanVien() {
+        KhachHangCallAPI.callapi.getAll().enqueue(new Callback<List<KhachHangDTO>>() {
+            @Override
+            public void onResponse(Call<List<KhachHangDTO>> call, Response<List<KhachHangDTO>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<KhachHangDTO>> call, Throwable t) {
+
+            }
+        });
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

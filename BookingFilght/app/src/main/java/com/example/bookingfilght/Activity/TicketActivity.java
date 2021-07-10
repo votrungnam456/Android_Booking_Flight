@@ -9,29 +9,29 @@ import android.widget.Button;
 
 import com.example.bookingfilght.R;
 
-public class InfoBookingActivity extends AppCompatActivity {
+public class TicketActivity extends AppCompatActivity {
 
-    Button btnBuy;
+    Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_booking);
+        setContentView(R.layout.activity_ticket);
         mapping();
         event();
     }
 
     private void event(){
-        btnBuy.setOnClickListener(new View.OnClickListener() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoBookingActivity.this, TicketActivity.class);
+                Intent intent = new Intent(TicketActivity.this, DashBoard.class);
                 startActivity(intent);
             }
         });
     }
 
     private void mapping(){
-        btnBuy = findViewById(R.id.btnbuy);
+        btnReturn = findViewById(R.id.btn_return);
     }
 }

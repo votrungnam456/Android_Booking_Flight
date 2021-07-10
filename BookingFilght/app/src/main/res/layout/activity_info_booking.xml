@@ -45,7 +45,7 @@
             android:layout_height="55dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
@@ -157,6 +157,20 @@
             app:layout_constraintVertical_bias="0.141" />
 
         <TextView
+            android:id="@+id/ngay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="108dp"
+            android:fontFamily="@font/antic"
+            android:text="25/05/2021"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:transitionName="sloganTN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+        <TextView
             android:transitionName="giaTN"
             android:id="@+id/tv_gia"
             android:layout_width="wrap_content"
@@ -247,45 +261,15 @@
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/password"
-            android:hint="Password"
-            app:passwordToggleEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:transitionName="password_tran"
-                >
-
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
-
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnregister"
+        android:id="@+id/btnbuy"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:backgroundTint="#000"
         android:textColor="#fff"
-        android:text="GO"
+        android:text="BUY"
         android:transitionName="button_tran" />
-
-    <Button
-        android:id="@+id/btnBacklogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:fontFamily="@font/antic"
-        android:backgroundTint="#fff"
-        android:text="Already have an Account? LogIn"
-        android:transitionName="login_signup_tran"
-
-        />
 
 </LinearLayout>

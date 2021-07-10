@@ -15,8 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingfilght.Models.ChuyenBayDTO;
+import com.example.bookingfilght.Models.DataOuputHistory;
 import com.example.bookingfilght.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterFlight extends BaseAdapter {
