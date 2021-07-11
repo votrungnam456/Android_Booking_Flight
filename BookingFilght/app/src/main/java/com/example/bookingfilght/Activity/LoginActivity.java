@@ -3,8 +3,12 @@ package com.example.bookingfilght.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,8 +21,10 @@ import com.example.bookingfilght.Models.KhachHangDTO;
 import com.example.bookingfilght.R;
 import com.example.bookingfilght.api.KhachHangCallAPI;
 import com.example.bookingfilght.api.callAPI;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,11 +33,14 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
+    List<KhachHangDTO> listKH;
     Button callSignUp, btnlogin;
     ImageView imageView;
     TextView logoText, sloganText;
     TextInputLayout emailAddress, password;
-
+    TextInputEditText txtEmailAdress, txtPassword;
+    KhachHangDTO userLogin;
+    public static String MyUSER = "MYUSER";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         mapping();
-        callNhanVien();
+        callAPIKhachHang();
         callSignUp.setOnClickListener(v -> {
 
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
@@ -59,8 +68,23 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnlogin.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, DashBoard.class);
-            startActivity(intent);
+
+            if(checkLogin(listKH)){
+                SharedPreferences sharedpreferences = getSharedPreferences(MyUSER, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString("Id", userLogin.getId().toString());
+                editor.putString("FullName", userLogin.getHoTen());
+                editor.putString("CMND", userLogin.getCMND());
+                editor.putString("PhoneNumber", userLogin.getSoDienThoai());
+                editor.putString("Email", userLogin.getEmail());
+                editor.commit();
+                Intent intent = new Intent(LoginActivity.this, DashBoard.class);
+                startActivity(intent);
+            }
+            else{
+                sloganText.setText("Email or password is wrong, please check again");
+                sloganText.setTextColor(Color.RED);
+            }
         });
 
     }
@@ -74,13 +98,32 @@ public class LoginActivity extends AppCompatActivity {
         emailAddress = findViewById(R.id.emailAddress);
         password = findViewById(R.id.password);
         btnlogin = findViewById(R.id.btnlogin);
+        txtEmailAdress = findViewById(R.id.txtEmailAdress);
+        txtPassword = findViewById(R.id.txtPassword);
     }
 
-    private void callNhanVien() {
+
+    private boolean checkLogin(List<KhachHangDTO> lstKH){
+        if(TextUtils.isEmpty(txtEmailAdress.getText().toString()) || TextUtils.isEmpty(txtPassword.getText().toString()))
+        {
+            return false;
+        }
+        String email = txtEmailAdress.getText().toString();
+        String pwd = txtPassword.getText().toString();
+        for (KhachHangDTO item: lstKH) {
+            if(item.getEmail().equals(email) && item.getMatKhau().equals(pwd)){
+                userLogin = item;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void callAPIKhachHang() {
         KhachHangCallAPI.callapi.getAll().enqueue(new Callback<List<KhachHangDTO>>() {
             @Override
             public void onResponse(Call<List<KhachHangDTO>> call, Response<List<KhachHangDTO>> response) {
-
+                listKH = response.body();
             }
 
             @Override

@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:transitionName="email_tran"
-                >
+                android:id="@+id/txtEmailAdress">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,9 +73,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:transitionName="password_tran"
-                >
+                android:id="@+id/txtPassword">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>

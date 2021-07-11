@@ -3,11 +3,11 @@ package com.example.bookingfilght.Models;
 public class KhachHangDTO {
 
 	private Long id;
-	
+
 	private String hoTen;
-	
+
 	private String cmnd;
-	
+
 	private String email;
 	
 	private String soDienThoai;
@@ -17,8 +17,18 @@ public class KhachHangDTO {
 	private String matKhau;
 	
 	private Boolean tinhTrang;
-	
-	
+
+	public KhachHangDTO(String hoTen, String cmnd, String email, String soDienThoai, String matKhau) {
+		this.hoTen = hoTen;
+		this.cmnd = cmnd;
+		this.email = email;
+		this.soDienThoai = soDienThoai;
+		this.matKhau = matKhau;
+	}
+
+	public KhachHangDTO() {
+	}
+
 
 	public Long getId() {
 		return id;
