@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookingFilght"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.TicketActivity"></activity>
+        <activity android:name=".Activity.AnimationSearchFlightActivity" />
+        <activity android:name=".Activity.AnimationBookingActivity" />
+        <activity android:name=".Activity.TicketActivity" />
         <activity android:name=".Activity.InfoBookingActivity" />
         <activity android:name=".Activity.ResultSearchActivity" />
         <activity android:name=".Activity.DashBoard" />

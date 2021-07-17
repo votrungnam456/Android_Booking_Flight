@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bookingfilght.Adapter.DrawerAdapter;
 import com.example.bookingfilght.Adapter.DrawerItem;
@@ -25,12 +27,20 @@ import com.example.bookingfilght.Fragment.AboutFragment;
 import com.example.bookingfilght.Fragment.DashboardFragment;
 import com.example.bookingfilght.Fragment.MyProfileFragment;
 import com.example.bookingfilght.Fragment.SettingFragment;
+import com.example.bookingfilght.Models.CovidDTO;
+import com.example.bookingfilght.Models.PhieuDatVeDTO;
 import com.example.bookingfilght.R;
+import com.example.bookingfilght.api.PhieuDatVeAPI;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static androidx.core.content.ContentProviderCompat.requireContext;
 
@@ -48,12 +58,16 @@ public class DashBoard extends AppCompatActivity implements DrawerAdapter.OnItem
 
     private SlidingRootNav slidingRootNav;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //bỏ thanh bar trên cùng.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dash_board);
+        callAPIPhieuDatVe();
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -161,12 +175,34 @@ public class DashBoard extends AppCompatActivity implements DrawerAdapter.OnItem
         }
 
         else if (position == POS_LOGOUT) {
-            finish();
+            Intent intent = new Intent(DashBoard.this, LoginActivity.class);
+            startActivity(intent);
+            SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.clear();
         }
 
         slidingRootNav.closeMenu();
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    public static List<PhieuDatVeDTO> listPDV;
+    public List<PhieuDatVeDTO> callAPIPhieuDatVe() {
+        PhieuDatVeAPI.callapi.getAll().enqueue(new Callback<List<PhieuDatVeDTO>>() {
+            @Override
+            public void onResponse(Call<List<PhieuDatVeDTO>> call, Response<List<PhieuDatVeDTO>> response) {
+                listPDV = response.body();
+                Toast.makeText(DashBoard.this, "Call success Phieu dat ve", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<List<PhieuDatVeDTO>> call, Throwable t) {
+                Toast.makeText(DashBoard.this, t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        return listPDV;
     }
 }
 

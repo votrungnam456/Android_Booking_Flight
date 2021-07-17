@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="165dp">
+
     <ImageView
-        android:transitionName="containerHistory"
-        android:background="@drawable/custom_itemflight"
+        android:id="@+id/imageView3"
         android:layout_width="400dp"
         android:layout_height="135dp"
-        android:layout_marginBottom="20dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_itemflight"
+        android:transitionName="containerHistory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewHistory"
-        android:layout_width="90dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/vnairline"
-        android:transitionName="ImgHangTN"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
@@ -33,7 +26,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="70dp"
         android:layout_marginRight="20dp"
         android:layout_weight="1"
         app:cardBackgroundColor="#86eb97"
@@ -66,7 +59,7 @@
                 android:layout_below="@+id/giodi"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="-25dp"
-                android:text="Ngày bay:"
+                android:text="Ngày đặt:"
                 android:textColor="@color/black"
                 android:textSize="19sp"
                 android:transitionName="MaDiTN" />
@@ -76,24 +69,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/hangveHistory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="64dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Vietnam Airlines"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:transitionName="HangTN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/lotrinhHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="92dp"
         android:fontFamily="@font/antic"
         android:text="HCM - HANOI"
         android:textColor="@color/black"
@@ -102,20 +81,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.033" />
 
     <TextView
         android:id="@+id/giaVeHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="108dp"
         android:fontFamily="sans-serif-black"
         android:text="829.000đ"
         android:textColor="@color/Red"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hangveHistory" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <Button
         android:id="@+id/btn_giaHistory"
@@ -128,7 +107,7 @@
         android:text="Chon"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toEndOf="@+id/giaVeHistory"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 

@@ -18,10 +18,6 @@ public class TuyenBayDTO {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public Boolean getTinhTrang() {
 		return tinhTrang;
 	}

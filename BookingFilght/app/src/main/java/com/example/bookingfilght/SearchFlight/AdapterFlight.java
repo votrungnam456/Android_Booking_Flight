@@ -57,6 +57,16 @@ public class AdapterFlight extends BaseAdapter {
         Button btn_Booking;
     }
 
+    public String xuLyGio(String gio, int thoiGianBay) {
+        String[] parts = gio.split(":");
+        String hour = parts[0];
+        int a = Integer.parseInt(hour) + thoiGianBay + 12;
+        if(a >= 24) {
+            a -= 24;
+        }
+        return a + ":" +  parts[1];
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHoldel viewHoldel;
@@ -86,11 +96,10 @@ public class AdapterFlight extends BaseAdapter {
         ChuyenBayDTO chuyenBayDTO = datas.get(position);
 
         viewHoldel.tv_gioDi.setText(chuyenBayDTO.getGio());
-        viewHoldel.tv_gioDen.setText(chuyenBayDTO.getGio());
+        viewHoldel.tv_gioDen.setText(xuLyGio(chuyenBayDTO.getGio(), chuyenBayDTO.getThoiGianBay().intValue()));
         viewHoldel.tv_maDi.setText(chuyenBayDTO.getCodeSanDi());
         viewHoldel.tv_maDen.setText(chuyenBayDTO.getCodeSanDen());
         viewHoldel.tv_hang.setText(chuyenBayDTO.getHangVe());
-        viewHoldel.tv_slogan.setText(chuyenBayDTO.getHangVe());
         viewHoldel.tv_gia.setText(chuyenBayDTO.getDonGia());
         viewHoldel.btn_Booking.setTag(1);
         viewHoldel.img.setImageResource(chuyenBayDTO.getImage());
@@ -103,11 +112,10 @@ public class AdapterFlight extends BaseAdapter {
                 if(viewHoldel.container != null || chuyenBayDTO.getCodeSanDi() == null ||
                         chuyenBayDTO.getCodeSanDen() == null ||chuyenBayDTO.getHangVe() == null ||
                         chuyenBayDTO.getDonGia() == null  || chuyenBayDTO.getImage() == null) {
-                        System.out.println(position);
                 } else {
                     flightCallBack.onFlightItemClick(position, viewHoldel.img, viewHoldel.tv_gioDi,
                             viewHoldel.tv_gioDen, viewHoldel.tv_maDi, viewHoldel.tv_maDen,
-                            viewHoldel.tv_hang, viewHoldel.tv_slogan, viewHoldel.tv_gia);
+                            viewHoldel.tv_hang, viewHoldel.tv_slogan, viewHoldel.tv_gia, chuyenBayDTO.getId());
                 }
             }
         });

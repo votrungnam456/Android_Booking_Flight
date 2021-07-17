@@ -15,6 +15,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.bookingfilght.Activity.LoginActivity;
+import com.example.bookingfilght.Models.ChuyenBayDTO;
+import com.example.bookingfilght.Models.SanBayDTO;
+import com.example.bookingfilght.api.ChuyenBayCallAPI;
+import com.example.bookingfilght.api.SanBayCallAPI;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //bỏ thanh bar trên cùng.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
 
         //Animations
         topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);

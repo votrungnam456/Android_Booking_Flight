@@ -1,6 +1,5 @@
 package com.example.bookingfilght.api;
 
-
 import com.example.bookingfilght.Models.ChuyenBayDTO;
 import com.example.bookingfilght.Models.KhachHangDTO;
 import com.google.gson.Gson;
@@ -11,17 +10,20 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
 
-public interface ChuyenBayCallAPI extends callAPI{
+public interface ChuyenBayCallAPI{
 
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-    callAPI callapi = new Retrofit.Builder().baseUrl("https://6092bf0a85ff51001721390f.mockapi.io/")
+    ChuyenBayCallAPI callapi = new Retrofit.Builder().baseUrl("https://filght.loca.lt/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(callAPI.class);
+            .create(ChuyenBayCallAPI.class);
 
-    @GET("USER")
+    @GET("chuyenbay")
     Call<List<ChuyenBayDTO>> getAll();
 
 }

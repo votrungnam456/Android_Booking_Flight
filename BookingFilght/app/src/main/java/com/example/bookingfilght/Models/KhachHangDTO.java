@@ -17,10 +17,19 @@ public class KhachHangDTO {
 	private String matKhau;
 	
 	private Boolean tinhTrang;
-	
-	
 
-	public Long getId() {
+    public KhachHangDTO(String hoTen, String cmnd, String email, String phoneNumber, String pwd) {
+    	this.hoTen = hoTen;
+    	this.cmnd = cmnd;
+    	this.email = email;
+    	this.soDienThoai = phoneNumber;
+    	this.matKhau = pwd;
+    }
+
+
+
+
+    public Long getId() {
 		return id;
 	}
 

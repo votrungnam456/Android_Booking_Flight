@@ -23,6 +23,16 @@ public class PhieuDatVeDTO {
 	private String hoTenNhanVien;
 	private String thoiGianBay;
 	private String tuyenBay;
+
+	public Long getIdChuyenBay() {
+		return idChuyenBay;
+	}
+
+	public void setIdChuyenBay(Long idChuyenBay) {
+		this.idChuyenBay = idChuyenBay;
+	}
+
+	private Long idChuyenBay;
 	
 
 	public Long getId() {

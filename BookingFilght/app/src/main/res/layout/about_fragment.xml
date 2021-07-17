@@ -36,6 +36,7 @@
 
 
                     <TextView
+                        android:id="@+id/nameUser"
                         android:text="Nguyễn Thành Long"
                         android:textSize="24dp"
                         android:textColor="#ffff"
@@ -76,6 +77,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/toalVe"
                     android:text= "Tổng vé: 10"
                     android:textSize="24dp"
                     android:textColor="#ffff"
@@ -87,6 +89,7 @@
                     android:layout_height="match_parent"
                     >
                     <TextView
+                        android:id="@+id/monny"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

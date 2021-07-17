@@ -8,5 +8,5 @@ public interface FlightCallBack {
 
     void onFlightItemClick(int pos, ImageView hangBay, TextView gioDi,
                            TextView gioDen, TextView maDi, TextView maDen,
-                           TextView tenHang, TextView slogan, TextView gia);
+                           TextView tenHang, TextView slogan, TextView gia, long idChuyenBay);
 }
