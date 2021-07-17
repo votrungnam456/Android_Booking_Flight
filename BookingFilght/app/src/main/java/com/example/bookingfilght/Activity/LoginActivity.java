@@ -68,23 +68,24 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnlogin.setOnClickListener(v -> {
-
-            if(checkLogin(listKH)){
-                SharedPreferences sharedpreferences = getSharedPreferences(MyUSER, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString("Id", userLogin.getId().toString());
-                editor.putString("FullName", userLogin.getHoTen());
-                editor.putString("CMND", userLogin.getCMND());
-                editor.putString("PhoneNumber", userLogin.getSoDienThoai());
-                editor.putString("Email", userLogin.getEmail());
-                editor.commit();
-                Intent intent = new Intent(LoginActivity.this, DashBoard.class);
-                startActivity(intent);
-            }
-            else{
-                sloganText.setText("Email or password is wrong, please check again");
-                sloganText.setTextColor(Color.RED);
-            }
+            Intent intent = new Intent(LoginActivity.this, DashBoard.class);
+               startActivity(intent);
+//            if(checkLogin(listKH)){
+//                SharedPreferences sharedpreferences = getSharedPreferences(MyUSER, Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedpreferences.edit();
+//                editor.putString("Id", userLogin.getId().toString());
+//                editor.putString("FullName", userLogin.getHoTen());
+//                editor.putString("CMND", userLogin.getCMND());
+//                editor.putString("PhoneNumber", userLogin.getSoDienThoai());
+//                editor.putString("Email", userLogin.getEmail());
+//                editor.commit();
+//                Intent intent = new Intent(LoginActivity.this, DashBoard.class);
+//                startActivity(intent);
+//            }
+//            else{
+//                sloganText.setText("Email or password is wrong, please check again");
+//                sloganText.setTextColor(Color.RED);
+//            }
         });
 
     }
